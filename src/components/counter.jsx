@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
     state = {
-        count: 0,
+        count: this.props.value,
         imageUrl: 'https://picsum.photos/200',
         tags: ['house', 'cars', 'boats']
     };
@@ -12,8 +12,10 @@ class Counter extends Component {
     }
 
     render(){
+        console.log('props', this.props)
         return(
             <React.Fragment>
+                {this.props.children} @ {this.props.counid}
                 <img src={ this.state.imageUrl} alt=""/>
                 <span style={this.styles} className={this.getClass()}>{ this.change() }</span>
                 <button onClick={this.handleIncrement} className="btn btn-primary">Increment</button>
