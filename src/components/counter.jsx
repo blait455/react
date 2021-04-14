@@ -5,7 +5,7 @@ class Counter extends Component {
     state = {
         count: 0,
         imageUrl: 'https://picsum.photos/200',
-        tags: ['tag1', 'tag2', 'tag3']
+        tags: ['house', 'cars', 'boats']
     };
     styles = {
         fontSize: 30,
@@ -16,11 +16,18 @@ class Counter extends Component {
                 <img src={ this.state.imageUrl} alt=""/>
                 <span style={this.styles} className={this.getClass()}>{ this.change() }</span>
                 <button className="btn btn-primary">Increment</button>
-                <ul>
+                
+                {this.state.tags.length === 0 ? <p>There are no tags</p> : <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>}
+                {/* {this.renderTags()} */}
+                {/* <ul>
                     {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-                </ul>
+                </ul> */}
             </React.Fragment>
         )
+    }
+    renderTags(){
+        if (this.state.tags.length === 0) return <p>'there are no tags'</p>;
+        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
     }
     getClass(){
         let classes = "badge m-2 badge-";
