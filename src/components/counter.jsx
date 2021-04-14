@@ -19,6 +19,7 @@ class Counter extends Component {
                 <img src={ this.state.imageUrl} alt=""/>
                 <span style={this.styles} className={this.getClass()}>{ this.change() }</span>
                 <button onClick={this.handleIncrement} className="btn btn-primary">Increment</button>
+                <button onClick={() => this.props.onDelete(this.props.counid)} className="btn btn-danger btn-sm m-2">Delete</button>
 
                 {this.state.tags.length === 0 ? <p>There are no tags</p> : <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>}
                 {/* {this.renderTags()} */}
