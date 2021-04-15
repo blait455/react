@@ -9,6 +9,15 @@ class Counter extends Component {
     };
     styles = {
         fontSize: 30,
+    };
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('prevState', prevState);
+        console.log('prevProps', prevProps);
+    }
+
+    componentWillUnmount() {
+        console.log('counter unMount');
     }
 
     render(){

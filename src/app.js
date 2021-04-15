@@ -10,23 +10,29 @@ import counters from "./components/counters";
 import Nav from './components/nav';
 import userData from "./components/userData";
 
-class app extends Component {
+class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Auth: false,
+            Auth: true,
         };
-        const prop = props;
+        console.log('App - constructor');
+    }
+
+    componentDidMount() {
+        // ajax call 
+        console.log('App - Mounted');
     }
 
     render() {
-        const PrivateRoute = ({component:Component, ...rest}) => {
+        console.log('App - rendering')
+        const PrivateRoute = ({component:Component, ...rest}) => (
             <Route {...rest} render={ (props) => (
                 this.state.Auth  === true ? 
                 <Component {...rest}/> : 
-                <Redirect to='/' />
+                <Redirect to='/any' />
             ) }/>
-        }
+        )
         return (
             <React.Fragment>
                 <Router>
@@ -42,4 +48,4 @@ class app extends Component {
     }
 }
 
-export default app
+export default App
