@@ -9,6 +9,7 @@ import {
 import counters from "./components/counters";
 import Nav from './components/nav';
 import userData from "./components/userData";
+import form from "./form";
 
 class App extends Component {
     constructor(props) {
@@ -39,6 +40,7 @@ class App extends Component {
                     <Nav/>
                     <Switch>
                         <Route exact path='/' component={counters}/>
+                        <Route path='/form' component={form}/>
                         <PrivateRoute exact path="/user" component={userData}/>
                         <Route path="*" render={() => <h1>404</h1>}/>
                     </Switch>
