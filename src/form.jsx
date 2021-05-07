@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 class form extends Component {
     constructor(props) {
@@ -28,6 +29,20 @@ class form extends Component {
         console.log('A form was submitted', this.state);
         event.preventDefault();    
     }
+
+    componentDidMount(){
+        // fetch('http://localhost:3004/posts')
+        // .then((res) => {
+        //     return res.json();
+        // })
+        // .then((myjson) => {
+        //     console.log(myjson)
+        // })
+
+        axios.get('http://localhost:3004/posts')
+        .then(res => console.log(res.data))
+    }
+
     render() {
         return(
             <>
